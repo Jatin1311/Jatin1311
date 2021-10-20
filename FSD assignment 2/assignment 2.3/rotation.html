@@ -1,0 +1,47 @@
+<!-- Animation with Js 
+control speed of rotating line -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation_Lines</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Lines Rotating</h1>
+    <p>Choose a button to increase or decrease speed of rotating lines</p>
+    <button>fast</button>                   <button>slow</button>
+    <svg xmlns="http://www.w3.org/2000/svg">
+        <line id="line" x1="20" y1="100" x2="100" y2="100" stroke-width="5" stroke="black">
+        </line>
+    </svg>
+    
+    
+<script>
+    var speed;
+    var line = document.getElementById("line");
+    var centerX = 60, centerY = 100, radius = 60, angle = 0;
+    var rotate = function(angle)
+    {
+    var x1, y1, x2, y2;
+ 	x1 = centerX + radius * Math.cos( angle );
+    y1 = centerY + radius * Math.sin( angle );
+    x2 = centerX - radius * Math.cos( angle );
+    y2 = centerY - radius * Math.sin( angle );
+    
+    line.setAttribute( 'x1', x1 );
+    line.setAttribute( 'y1', y1 );
+    line.setAttribute( 'x2', x2 );
+    line.setAttribute( 'y2', y2 );
+}
+// animation
+setInterval( function(){
+    angle += .1;
+    rotate( angle );
+},60)
+    </script>
+
+
+</body>
+</html>
